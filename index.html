@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>AngularJS Movable</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="opensource AngularJS Movable">
+    <meta name="description" content="This tiny jQuery Bootstrap RichText plugin turns input/textarea into a HTML5 rich text editor">
+	
+	<link rel="icon" type="image/ico" href="./favicon.ico">
+	<link rel='stylesheet' href='./css/bootstrap.min.css' />
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="./css/font-awesome-ie7.min.css">
+	<![endif]-->
+	
+	<script src="./js/jquery.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/angular.min.js"></script>
+    <script src="./js/ngMovable.js"></script>
+    <script src="../js/itman70s.menu.js"></script>
+<style>
+</style>
+</head>
+
+<body>
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+<div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	<a class="navbar-brand" href="http://itman70s.github.io/angular-movable">ngMovable</a>
+    </div>
+    <nav id="bs-navbar" class="collapse navbar-collapse">
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="#">Home</a></li>
+		<li><a target="_blank" href="https://github.com/ItMan70s/angular-movable" data-placement="bottom" title="Open in github">[Code]   </a></li>
+		<li><a target="_blank" href="https://github.com/ItMan70s/angular-movable/issues" data-placement="bottom" title="Open in github">[Issues] </a></li>
+		<li><a target="_blank" href="https://github.com/ItMan70s/angular-movable/releases" data-placement="bottom" title="Open in github">[Download] </a></li>
+	</ul>
+	<ul class="nav navbar-nav pull-right">
+		<li class="dropdown">
+          <a href="javascript:;" class="dropdown-toggle itman70s_menu" data-toggle="dropdown" data-placement="right" title="All about ItMan70s.github.io"><img class="pull-left" src="http://itman70s.github.io/img/logo_w.png"> <b class="caret"></b></a>
+          <ul class="dropdown-menu itman70s_sub_menu">
+          </ul>
+        </li>
+	</ul>
+    </nav>
+</div>
+</header>
+<div class="container" style="padding-top: 70px;">
+	<div class="jumbotron homepage text-center">
+		<h1>AngularJS Movable </h1>
+		<p class="text-left">An angular directive offering a simple way to make your items movable. </p>
+	</div>
+	<h1 class="page-header">Examples</h1>
+	<h2>Whole panel draggable</h2>
+	<div class="row root"><div class="col-md-12">
+		<div movable class="panel panel-default">
+		  <div class="panel-heading">Drag panel to move it</div>
+		  <div class="panel-body">
+			So easy :)
+		  </div>
+		</div>
+	</div></div>
+	<h2>Panel header draggable</h2>
+	<div class="row root"><div class="col-md-12">
+		<div class="panel panel-default">
+		  <div movable=".panel" class="panel-heading">Drag header to move panel</div>
+		  <div class="panel-body">
+			So easy :)
+		  </div>
+		</div>
+	</div></div>
+	
+	<h1 class="page-header">Usage</h1>
+	<p>Add a dependency to the ngMovable module in your application.</p>
+	<pre>angular.module('app', ['ngMovable']);</pre>
+
+	<p>Add attribute directives to your html:<br>
+	<b style="color: blue;">movable</b> or <b style="color: blue;">movable="selector"</b> - jquery selector for closest parent to move</p>
+	<pre>&lt;div <b style="color: blue;">movable</b> class="panel panel-default"&gt;&lt;/div&gt;</pre>
+
+</div>
+  
+<br>
+<br>
+<br>
+
+<script>
+	angular.module('app', ['ngMovable']);
+	jQuery(".panel-body").each(function() {
+		var $this = jQuery(this);
+		var html = $this.closest(".root").html();
+		$this.html("The source codes of this sample:<br><pre>" + format(html).replace("movable", "<b style='color: blue;'>movable</b>") + "</pre>");
+	});
+	function format(html) {
+		return (html || "").replace(/"/g, "&#34;").replace(/'/g, "&#39;").replace(/\</g, "&lt;").replace(/\>/g, "&gt;").replace(/\\/g, "&#92;").replace(/\r/g, "<br>").replace(/\n/g, "<br>");
+	}
+</script>
+
+</body>
+</html>
