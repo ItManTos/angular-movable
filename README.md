@@ -1,10 +1,10 @@
-![itman70s](favicon.ico) AngularJS Movable 
+![itmanTos](favicon.ico) AngularJS Movable 
 ===================
 An angular directive offering a simple way to make your items movable.
 
 Demo
 -----------
-See http://itman70s.github.io/angular-movable
+See http://itmanTos.github.io/angular-movable
 
 Usage
 -----------
